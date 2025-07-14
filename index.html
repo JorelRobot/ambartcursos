@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AMBART Cursos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        :root {
+            --bs-primary: #FFC107;
+            --bs-secondary: #6c757d;
+            --bs-success: #4CAF50;
+            --bs-info: #17a2b8;
+            --bs-warning: #FFC107;
+            --bs-danger: #dc3545;
+            --bs-light: #f8f9fa;
+            --bs-dark: #212529;
+        }
+
+        .btn-primary {
+            background-color: var(--bs-primary) !important;
+            border-color: var(--bs-primary) !important;
+            color: #000 !important;
+            /* porque ámbar sobre blanco necesita contraste */
+        }
+
+        .bg-primary {
+            background-color: var(--bs-primary) !important;
+        }
+
+        .text-primary {
+            color: var(--bs-primary) !important;
+        }
+
+        .hero {
+            position: relative;
+            background: url('https://images.pexels.com/photos/6925353/pexels-photo-6925353.jpeg') center/cover no-repeat;
+            color: white;
+            text-align: center;
+            padding: 160px 20px;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        /* Capa negra encima de la imagen */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            /* Negro con 50% de opacidad */
+            z-index: -1;
+        }
+
+        @media (min-width: 768px) {
+
+            .expandable-img {
+                max-height: 250px;
+                overflow: hidden;
+                transition: max-height 0.5s ease;
+                border-radius: 8px;
+            }
+
+            .expandable-img img {
+                width: 100%;
+                height: auto;
+                display: block;
+                transition: transform 0.3s ease;
+            }
+
+
+            /* Al hacer hover, muestra la imagen completa */
+            .expandable-img:hover {
+                max-height: 1000px;
+                /* suficientemente alto para imágenes grandes */
+            }
+
+            .expandable-img:hover img {
+                transform: scale(1.05);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top"> -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <div class="container">
+
+            <!-- LOGO a la izquierda -->
+            <a class="navbar-brand" href="#">AMBART Cursos</a>
+
+            <!-- Botón hamburguesa (sigue funcionando en móviles) -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Contenido colapsable (MENÚ + REDES) -->
+            <div class="collapse navbar-collapse justify-content-between" id="navbarNavContent">
+
+                <!-- Menú centrado -->
+                <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="#index">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#cursos">Cursos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#instructora">Instructora</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#galeria">Galería</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+                </ul>
+
+                <!-- Redes sociales alineadas a la derecha -->
+                <div class="d-flex gap-3">
+                    <a class="nav-link" style="color: #25D366;" href="https://wa.me/5213345121847" target="_blank">
+                        <i class="bi bi-whatsapp"></i> WhatsApp
+                    </a>
+                    <!-- <a class="nav-link" style="color: #E1306C;" href="https://instagram.com/jorel_robot"
+                        target="_blank">
+                        <i class="bi bi-instagram"></i> Instagram
+                    </a> -->
+                </div>
+
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- Hero -->
+    <section class="container" id="index">
+        <div class="row d-flex align-items-center g-3">
+            <div class="col-md-6">
+                <h1 class="display-4">Cursos de dibujo y pintura</h1>
+                <p class="lead">Descubre tu talento con técnicas profesionales</p>
+                <a href="#contacto" class="btn btn-primary btn-lg mt-3">Inscribirme</a>
+            </div>
+            <div class="col-md-6">
+                <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                    <div class="carousel-inner rounded">
+                        <div class="carousel-item active">
+                            <img src="https://images.pexels.com/photos/102127/pexels-photo-102127.jpeg"
+                                class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="https://images.pexels.com/photos/716733/pexels-photo-716733.jpeg"
+                                class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="https://images.pexels.com/photos/1707640/pexels-photo-1707640.jpeg"
+                                class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="https://images.pexels.com/photos/2956376/pexels-photo-2956376.jpeg"
+                                class="d-block w-100" alt="...">
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cursos -->
+    <section id="cursos" class="bg-light text-center">
+        <div class="container">
+            <h2>Cursos disponibles</h2>
+            <div class="row mt-5">
+                <div class="col-md-4 mb-4">
+                    <div class="card shadow pb-4 h-100">
+                        <img src="https://images.pexels.com/photos/6593536/pexels-photo-6593536.jpeg"
+                            class="card-img-top" alt="Curso de dibujo artístico">
+                        <div class="card-body">
+                            <h5 class="card-title">Dibujo a lapiz de grafito</h5>
+                            <div class="card-subtitle badge text-bg-success">Principiante</div>
+                            <p class="card-text fw-lighter mt-3">Aprende las tecnicas basicas del dibujo a lápiz: Luz, sombra,
+                                proporciones y más.
+                            </p>
+                            <a href="curso-dibujo.html" class="btn btn-primary">Ver detalles</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card shadow pb-4 h-100">
+                        <img src="https://images.pexels.com/photos/3778848/pexels-photo-3778848.jpeg"
+                            class="card-img-top" alt="Curso de dibujo artístico">
+                        <div class="card-body">
+                            <h5 class="card-title">Dibujo con carboncillo</h5>
+                            <div class="card-subtitle badge text-bg-success">Principiante</div>
+                            <p class="card-text fw-lighter mt-3">Aprende las bases del dibujo con carboncillo: Luz, sombra, proporciones
+                                y más.
+                            </p>
+                            <a href="curso-dibujo.html" class="btn btn-primary disabled">De momento no disponible</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card shadow pb-4 h-100">
+                        <img src="https://images.pexels.com/photos/29946013/pexels-photo-29946013.jpeg"
+                            class="card-img-top" alt="Curso de dibujo artístico">
+                        <div class="card-body">
+                            <h5 class="card-title">Pintura acrilica</h5>
+                            <div class="card-subtitle badge text-bg-success">Principiante</div>
+                            <p class="card-text fw-lighter mt-3">Aprende las bases de la pintura acrilica: Teoria del color, texturas y
+                                más.
+                            </p>
+                            <a href="curso-dibujo.html" class="btn btn-primary disabled">De momento no disponible</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre el instructor -->
+    <section id="instructora" class="text-center">
+        <div class="container">
+            <h2>Conoce a la instructora</h2>
+            <div class="row d-flex align-items-center mt-5 g-3">
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-md-8 col-sm-12 mx-auto mb-5">
+                            <img src="/images/certificado.png" class="img-fluid rounded shadow"
+                                alt="Certificado del la instructora" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <p><strong>Amsi Berenice</strong>. Artista plástica en formación e instructora certificada.
+                        Ha impartido clases en nivel preparatoria, en fundaciones culturales y de forma particular. Se
+                        especializa en dibujo y pintura, dominando técnicas como lápiz de grafito, carboncillo,
+                        acrílico, óleo y acuarela.
+                    </p>
+                    <p>
+                        Le apasiona enseñar, compartir lo que sabe y acompañar a cada estudiante en el desarrollo de su
+                        técnica. Disfruta ver cómo sus alumnos mejoran, descubren su estilo y aprenden a expresarse a
+                        través del arte.
+                    </p>
+                    <p>
+                        Para <strong>Amsi</strong>, el dibujo y la pintura son herramientas poderosas de expresión, y su objetivo es que
+                        cada persona aprenda a utilizarlas con confianza y libertad.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galería -->
+    <section id="galeria" class="bg-light text-center">
+        <div class="container">
+            <h2>Galería de trabajos</h2>
+            <div class="row mt-4 g-2">
+                <div class="col-md-4">
+                    <div class="expandable-img">
+                        <img src="/images/estatua.jpeg" class="img-fluid" alt="Obra 2" />
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="expandable-img">
+                        <img src="/images/rosa.jpeg" class="img-fluid" alt="Obra 2" />
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="expandable-img">
+                        <img src="/images/gato.jpeg" class="img-fluid" alt="Obra 2" />
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="expandable-img">
+                        <img src="/images/cafe.jpeg" class="img-fluid" alt="Obra 2" />
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="expandable-img">
+                        <img src="/images/libro.jpeg" class="img-fluid" alt="Obra 2" />
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="expandable-img">
+                        <img src="/images/lobos.jpeg" class="img-fluid" alt="Obra 2" />
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="expandable-img">
+                        <img src="/images/patito.jpeg" class="img-fluid" alt="Obra 2" />
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="expandable-img">
+                        <img src="/images/pera.jpeg" class="img-fluid" alt="Obra 2" />
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="expandable-img">
+                        <img src="/images/perro.jpeg" class="img-fluid" alt="Obra 2" />
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="expandable-img">
+                        <img src="/images/joker.jpeg" class="img-fluid" alt="Obra 2" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto" class="text-center">
+        <div class="container">
+            <h2>Contáctanos</h2>
+            <p>¿Tienes dudas o quieres inscribirte? Llena el siguiente formulario o escríbenos por
+                <a class="nav-link" style="color: #25D366;" href="https://wa.me/5213345121847" target="_blank">
+                    <i class="bi bi-whatsapp"></i> WhatsApp
+                </a>
+            </p>
+            <form class="row g-3 justify-content-center" action="https://formsubmit.co/bere.robles0614@gmail.com"
+                method="POST">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_next" value="https://ambartcursos.com/pages/gracias.html">
+
+                <div class="col-md-6">
+                    <input type="text" class="form-control" placeholder="Nombre" name="name" required>
+                </div>
+                <div class="col-md-6">
+                    <input type="email" class="form-control" placeholder="Correo electrónico" name="email" required>
+                </div>
+                <div class="col-12">
+                    <textarea class="form-control" rows="4" placeholder="Tu mensaje" name="message" required></textarea>
+                </div>
+                <div class="col-12">
+                    <button type="submit" class="btn btn-primary">Enviar mensaje</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-4">
+        <div class="container">
+            <p>&copy; 2025 AMBART Cursos. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
